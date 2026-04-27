@@ -127,8 +127,8 @@ nav {
   50%      { opacity:0.4; transform:scale(0.8); }
 }
 .badge-text {
-  font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
-  color: #5bc8d8; letter-spacing: 0.1em;
+  font-family: 'Inter', sans-serif; font-size: 0.8rem;
+  font-weight: 600; color: #5bc8d8; letter-spacing: 0.04em;
 }
 .hero-h1 {
   font-size: 3.2rem; font-weight: 800; color: #fff;
@@ -179,7 +179,7 @@ nav {
 .service-desc { font-size: 0.83rem; color: #4e5d6e; line-height: 1.78; font-weight: 400; }
 .service-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1.4rem; }
 .tag {
-  font-family: 'JetBrains Mono', monospace; font-size: 0.62rem;
+  font-family: 'Inter', sans-serif; font-size: 0.78rem; font-weight: 700;
   padding: 3px 9px; border: 1px solid rgba(91,200,216,0.16);
   color: #5bc8d8; border-radius: 1px; letter-spacing: 0.04em;
 }
@@ -188,18 +188,18 @@ nav {
 .process-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; }
 .process-step { padding: 0 2rem 0 0; position: relative; }
 .step-num {
-  font-family: 'JetBrains Mono', monospace; font-size: 0.62rem;
-  color: #5bc8d8; letter-spacing: 0.12em; margin-bottom: 0.9rem;
+  font-family: 'Inter', sans-serif; font-size: 0.78rem; font-weight: 700;
+  color: #5bc8d8; letter-spacing: 0.03em; margin-bottom: 0.9rem; text-transform: uppercase;
   display: flex; align-items: center; gap: 8px;
 }
-.step-dot { width: 7px; height: 7px; border-radius: 50%; background: #5bc8d8; flex-shrink: 0; }
+.step-dot { width: 8px; height: 8px; border-radius: 50%; background: #5bc8d8; flex-shrink: 0; }
 .step-line {
   position: absolute; top: 3px; left: 16px; right: 0;
   height: 1px; background: rgba(91,200,216,0.15);
 }
 .process-step:last-child .step-line { display: none; }
-.step-title { font-size: 0.9rem; font-weight: 600; color: #fff; margin-bottom: 0.4rem; }
-.step-desc { font-size: 0.79rem; color: #3e4c5e; line-height: 1.7; font-weight: 400; }
+.step-title { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem; }
+.step-desc { font-size: 0.83rem; color: #4e5d6e; line-height: 1.7; font-weight: 400; }
 
 /* ===== CTA BANNER ===== */
 .cta-banner {
@@ -227,7 +227,7 @@ nav {
 .acc-header:hover { background: rgba(255,255,255,0.02); }
 .acc-title { font-size: 0.9rem; font-weight: 600; color: #c8d0dc; }
 .acc-arrow {
-  font-family: 'JetBrains Mono', monospace; font-size: 0.62rem;
+  font-family: 'Inter', sans-serif; font-size: 0.78rem; font-weight: 700;
   color: #5bc8d8; transition: transform 0.25s; flex-shrink: 0;
 }
 .acc-arrow.open { transform: rotate(90deg); }
