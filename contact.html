@@ -70,46 +70,49 @@
 
         <!-- RIGHT: FORM -->
         <div>
-          <form id="contact-form" onsubmit="handleSubmit(event)" novalidate>
+          <form id="contact-form" action="https://formspree.io/f/xpqkgadz" method="POST" onsubmit="handleSubmit(event)">
 
             <div class="form-row">
               <div class="form-group">
                 <label class="form-label" for="name">Full Name</label>
-                <input class="form-input" type="text" id="name" placeholder="Jane Smith" required>
+                <input class="form-input" type="text" id="name" name="Full Name" placeholder="Jane Smith" required>
               </div>
               <div class="form-group">
                 <label class="form-label" for="company">Company</label>
-                <input class="form-input" type="text" id="company" placeholder="Acme Ltd" required>
+                <input class="form-input" type="text" id="company" name="Company" placeholder="Acme Ltd" required>
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group">
                 <label class="form-label" for="email">Email</label>
-                <input class="form-input" type="email" id="email" placeholder="jane@acme.com" required>
+                <input class="form-input" type="email" id="email" name="email" placeholder="jane@acme.com" required>
               </div>
               <div class="form-group">
                 <label class="form-label" for="industry">Industry</label>
-                <input class="form-input" type="text" id="industry" placeholder="e.g. Retail, Logistics, Finance">
+                <input class="form-input" type="text" id="industry" name="Industry" placeholder="e.g. Retail, Logistics, Finance">
               </div>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="project-type">Project Focus</label>
-              <select class="form-select" id="project-type">
+              <select class="form-select" id="project-type" name="Project Focus">
                 <option value="" disabled selected>Select a focus area...</option>
-                <option value="ai">AI &amp; Agentic Solutions</option>
-                <option value="integrations">System Integrations</option>
-                <option value="cloud">Cloud &amp; Hosting</option>
-                <option value="multiple">Multiple areas</option>
-                <option value="unsure">Not sure yet</option>
+                <option value="AI & Agentic Solutions">AI &amp; Agentic Solutions</option>
+                <option value="System Integrations">System Integrations</option>
+                <option value="Cloud & Hosting">Cloud &amp; Hosting</option>
+                <option value="Multiple areas">Multiple areas</option>
+                <option value="Not sure yet">Not sure yet</option>
               </select>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="message">Tell us about your project</label>
-              <textarea class="form-textarea" id="message" placeholder="Describe what you are working on — even a rough idea is a great starting point." required></textarea>
+              <textarea class="form-textarea" id="message" name="Message" placeholder="Describe what you are working on — even a rough idea is a great starting point." required></textarea>
             </div>
+
+            <!-- Honeypot spam filter — hidden from real users -->
+            <input type="text" name="_gotcha" style="display:none">
 
             <button type="submit" class="form-submit">Send Enquiry</button>
             <p class="form-note">We will respond within one business day. All enquiries are treated in strict confidence.</p>
@@ -138,10 +141,31 @@
 </footer>
 
 <script>
-function handleSubmit(e) {
+async function handleSubmit(e) {
   e.preventDefault();
-  document.getElementById('contact-form').style.display = 'none';
-  document.getElementById('success-msg').style.display = 'block';
+  const form = document.getElementById('contact-form');
+  const btn  = form.querySelector('.form-submit');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (response.ok) {
+      form.style.display = 'none';
+      document.getElementById('success-msg').style.display = 'block';
+    } else {
+      btn.textContent = 'Send Enquiry';
+      btn.disabled = false;
+      alert('Something went wrong. Please email us directly at info@n2nitservices.com');
+    }
+  } catch (err) {
+    btn.textContent = 'Send Enquiry';
+    btn.disabled = false;
+    alert('Something went wrong. Please email us directly at info@n2nitservices.com');
+  }
 }
 </script>
 </body>
