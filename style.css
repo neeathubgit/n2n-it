@@ -338,11 +338,14 @@ nav {
 /* ===== HUMAN LINES ===== */
 .hero-human {
   font-family: 'DM Serif Display', serif;
-  font-size: 1.05rem; font-style: italic;
-  color: #9BAABB; line-height: 1.75;
-  max-width: 520px; margin-top: 2rem; margin-bottom: 2.5rem;
-  border-left: 2px solid #5bc8d8;
-  padding-left: 1.2rem;
+  font-size: 1.1rem; font-style: italic;
+  color: #ffffff; line-height: 1.75;
+  max-width: 520px;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  border-left: 3px solid #5bc8d8;
+  padding-left: 1.4rem;
+  opacity: 0.85;
 }
 .about-human {
   font-family: 'DM Serif Display', serif;
