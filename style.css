@@ -15,6 +15,7 @@ body {
   color: #dde2ec;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  font-size: clamp(14px, 1.1vw, 20px);
 }
 
 /* ===== NAV ===== */
@@ -49,14 +50,14 @@ nav {
 .page-wrap { padding-top: 72px; min-height: 100vh; }
 
 /* ===== LAYOUT ===== */
-.container { max-width: 1080px; margin: 0 auto; padding: 0 2.5rem; }
+.container { max-width: min(1080px, 90vw); margin: 0 auto; padding: 0 2.5rem; }
 .section { padding: 5rem 0; }
 .divider { border: none; border-top: 1px solid rgba(91,200,216,0.08); margin: 0; }
 
 /* ===== TYPOGRAPHY ===== */
 .section-h2 {
   font-family: 'DM Serif Display', serif;
-  font-size: 2rem; font-weight: 400; color: #fff;
+  font-size: clamp(1.5rem, 2.5vw, 2.8rem); font-weight: 400; color: #fff;
   margin-bottom: 0.6rem; letter-spacing: 0;
 }
 .section-sub {
@@ -112,7 +113,7 @@ nav {
   background: radial-gradient(circle, rgba(26,50,85,0.35) 0%, transparent 65%);
   pointer-events: none;
 }
-.hero-content { position: relative; max-width: 680px; }
+.hero-content { position: relative; max-width: min(680px, 80vw); }
 .hero-badge {
   display: flex; align-items: center; gap: 10px;
   margin-bottom: 2rem;
@@ -132,12 +133,12 @@ nav {
 }
 .hero-h1 {
   font-family: 'DM Serif Display', serif;
-  font-size: 3.2rem; font-weight: 400; color: #fff;
+  font-size: clamp(2rem, 4vw, 4.5rem); font-weight: 400; color: #fff;
   line-height: 1.1; margin-bottom: 1.4rem; letter-spacing: -0.01em;
 }
 .hero-h1 .accent { color: #5bc8d8; }
 .hero-sub {
-  font-size: 1rem; color: #A8B4C0; line-height: 1.82;
+  font-size: clamp(0.9rem, 1.2vw, 1.2rem); color: #A8B4C0; line-height: 1.82;
   max-width: 540px; margin-bottom: 0; font-weight: 400;
 }
 .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
@@ -372,10 +373,49 @@ footer a:hover { color: #5bc8d8; }
 .footer-links { display: flex; gap: 2rem; }
 
 /* ===== RESPONSIVE ===== */
+
+/* ===== LARGE / 4K SCREENS ===== */
+@media (min-width: 1800px) {
+  .container { max-width: 1400px; }
+  .hero-content { max-width: 900px; }
+  .nav-logo img { height: 64px; }
+  nav { padding: 1rem 4rem; }
+  .section { padding: 6rem 0; }
+  .stat-num { font-size: 2.8rem; }
+  .stat-label { font-size: 0.75rem; }
+  .service-card { padding: 3rem 2.5rem; }
+  .service-title { font-size: 1.2rem; }
+  .service-desc { font-size: 0.95rem; }
+  .step-title { font-size: 1.1rem; }
+  .step-desc { font-size: 0.92rem; }
+  .section-sub { font-size: 1.05rem; max-width: 700px; }
+  .hero-human { font-size: 1.3rem; max-width: 700px; }
+  .cta-banner { padding: 5rem; }
+  .cta-banner h2 { font-size: 2.4rem; }
+  .about-stat-num { font-size: 3rem; }
+  .build-block-header h3 { font-size: 1.8rem; }
+  .build-desc { font-size: 1rem; max-width: 900px; }
+  .acc-title { font-size: 1rem; }
+  .acc-body p { font-size: 0.95rem; }
+  .form-input, .form-select, .form-textarea { font-size: 0.95rem; padding: 0.9rem 1.1rem; }
+  .contact-info h3 { font-size: 1.2rem; }
+  .contact-info p { font-size: 0.95rem; }
+  .about-text p { font-size: 1rem; }
+}
+
+@media (min-width: 2500px) {
+  .container { max-width: 1800px; }
+  .hero-content { max-width: 1100px; }
+  nav { padding: 1.2rem 5rem; }
+}
+
 @media (max-width: 960px) {
+  body { font-size: 15px; }
   nav { padding: 0.9rem 1.5rem; }
   .nav-links { display: none; }
   .hero-h1 { font-size: 2.1rem; }
+  .hero-sub { font-size: 0.95rem; }
+  .section-sub { font-size: 0.9rem; }
   .stats-strip { grid-template-columns: repeat(2,1fr); }
   .services-grid { grid-template-columns: 1fr; }
   .process-grid { grid-template-columns: 1fr 1fr; gap: 2rem 1rem; }
